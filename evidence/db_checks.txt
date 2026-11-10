@@ -1,0 +1,19 @@
+BEGIN
+SET
+psql:/tmp/reconstruction_checks.sql:136: NOTICE:  PASS DB01: missing context exposes no rows
+psql:/tmp/reconstruction_checks.sql:136: NOTICE:  PASS DB02: tenant A sees its own fixtures only
+psql:/tmp/reconstruction_checks.sql:136: NOTICE:  PASS DB03: forged tenant insert rejected
+psql:/tmp/reconstruction_checks.sql:136: NOTICE:  PASS DB04: overlapping booking rejected
+psql:/tmp/reconstruction_checks.sql:136: NOTICE:  PASS DB05: adjacent booking accepted
+psql:/tmp/reconstruction_checks.sql:136: NOTICE:  PASS DB06: zero-length booking rejected
+psql:/tmp/reconstruction_checks.sql:136: NOTICE:  PASS DB07: cross-tenant booking read hidden
+psql:/tmp/reconstruction_checks.sql:136: NOTICE:  PASS DB08: cross-tenant update affects zero rows
+psql:/tmp/reconstruction_checks.sql:136: NOTICE:  PASS DB09: cross-tenant delete affects zero rows
+psql:/tmp/reconstruction_checks.sql:136: NOTICE:  PASS DB10: original booking remains unchanged
+DO
+ROLLBACK
+             result              
+---------------------------------
+ DB TEST TRANSACTION ROLLED BACK
+(1 row)
+

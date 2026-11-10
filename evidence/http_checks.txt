@@ -1,0 +1,27 @@
+PASS HTTP01 missing authentication
+PASS HTTP02 invalid token
+PASS HTTP03 expired token
+PASS HTTP04 tenant A professionals
+PASS HTTP05 tenant B professionals
+PASS HTTP06 tenant claim cannot override server identity
+PASS HTTP07 client tenant field rejected
+PASS HTTP08 foreign professional hidden
+PASS HTTP09 own booking created
+PASS HTTP10 created booking belongs to tenant A
+PASS HTTP11 cross-tenant read hidden
+PASS HTTP12 cross-tenant update denied
+PASS HTTP13 cross-tenant delete denied
+PASS HTTP14 original remains confirmed
+PASS HTTP15 identical replay
+PASS HTTP16 changed payload conflicts
+PASS HTTP17 adjacent interval accepted
+PASS HTTP18 empty interval rejected
+CONCURRENCY distinct keys: [409, 409, 409, 409, 201, 409, 409, 409, 409, 409, 409, 409]
+PASS HTTP19 competing bookings: one success and eleven conflicts
+CONCURRENCY same key: [201, 201, 201, 201, 201, 201, 201, 201, 201, 201, 201, 201]
+PASS HTTP20 concurrent identical requests all succeed
+PASS HTTP21 concurrent identical requests return one booking
+PASS HTTP22 exactly one original and eleven replays
+PASS HTTP23 list contains each test booking once
+SUMMARY {"run_id": "d32e63aa5348445b9d99f3ae018fd231", "results": [{"case": "HTTP01 missing authentication", "status": "PASS"}, {"case": "HTTP02 invalid token", "status": "PASS"}, {"case": "HTTP03 expired token", "status": "PASS"}, {"case": "HTTP04 tenant A professionals", "status": "PASS"}, {"case": "HTTP05 tenant B professionals", "status": "PASS"}, {"case": "HTTP06 tenant claim cannot override server identity", "status": "PASS"}, {"case": "HTTP07 client tenant field rejected", "status": "PASS"}, {"case": "HTTP08 foreign professional hidden", "status": "PASS"}, {"case": "HTTP09 own booking created", "status": "PASS"}, {"case": "HTTP10 created booking belongs to tenant A", "status": "PASS"}, {"case": "HTTP11 cross-tenant read hidden", "status": "PASS"}, {"case": "HTTP12 cross-tenant update denied", "status": "PASS"}, {"case": "HTTP13 cross-tenant delete denied", "status": "PASS"}, {"case": "HTTP14 original remains confirmed", "status": "PASS"}, {"case": "HTTP15 identical replay", "status": "PASS"}, {"case": "HTTP16 changed payload conflicts", "status": "PASS"}, {"case": "HTTP17 adjacent interval accepted", "status": "PASS"}, {"case": "HTTP18 empty interval rejected", "status": "PASS"}, {"case": "HTTP19 competing bookings: one success and eleven conflicts", "status": "PASS"}, {"case": "HTTP20 concurrent identical requests all succeed", "status": "PASS"}, {"case": "HTTP21 concurrent identical requests return one booking", "status": "PASS"}, {"case": "HTTP22 exactly one original and eleven replays", "status": "PASS"}, {"case": "HTTP23 list contains each test booking once", "status": "PASS"}], "synthetic_bookings_created": 4, "cleanup": "PASS", "cleanup_action": "cancel tracked synthetic bookings; preserve history"}
+HTTP AND CONCURRENCY CHECKS PASS

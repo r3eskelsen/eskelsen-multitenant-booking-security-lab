@@ -1,0 +1,27 @@
+name: esk-lab03
+services:
+  db:
+    image: postgres:16
+    pull_policy: never
+    container_name: esk-lab03-db
+    restart: "no"
+    mem_limit: 512m
+    cpus: 1.0
+    pids_limit: 128
+    environment:
+      POSTGRES_DB: booking_lab
+      POSTGRES_USER: lab03_owner
+      POSTGRES_PASSWORD: ${LAB03_DB_PASSWORD:?Missing local password}
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    networks:
+      - lab03
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lab03_owner -d booking_lab"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+networks:
+  lab03:
+    name: esk-lab03-private
+    internal: true

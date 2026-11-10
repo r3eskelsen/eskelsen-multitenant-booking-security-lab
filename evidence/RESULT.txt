@@ -1,0 +1,7 @@
+Reconstruction: PASS
+Source: verified review ZIP
+Deployment names and host port adapted for coexistence.
+Fresh runtime build and fresh PostgreSQL storage used.
+Database, HTTP/concurrency and pool suites passed.
+Original container identities unchanged.
+Public release preparation remains pending.

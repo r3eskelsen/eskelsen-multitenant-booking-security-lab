@@ -1,0 +1,10 @@
+services:
+  api:
+    networks:
+      lab03: {}
+      local: {}
+
+networks:
+  local:
+    name: esk-lab03-local
+    driver: bridge

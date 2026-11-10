@@ -1,0 +1,46 @@
+services:
+  api:
+    image: esk-lab03-api-runtime:v1
+    pull_policy: never
+    container_name: esk-lab03-api
+    restart: "no"
+    mem_limit: 384m
+    cpus: 1.0
+    pids_limit: 128
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      LAB03_APP_PASSWORD: ${LAB03_APP_PASSWORD:?Missing application password}
+      LAB03_JWT_SECRET: ${LAB03_JWT_SECRET:?Missing signing secret}
+    volumes:
+      - ./src:/app:ro
+    ports:
+      - "127.0.0.1:18083:8000"
+    networks:
+      - lab03
+    depends_on:
+      db:
+        condition: service_healthy
+    command:
+      - python
+      - -m
+      - uvicorn
+      - main:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+      - --no-access-log
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3).close()"
+      interval: 3s
+      timeout: 5s
+      retries: 15
+      start_period: 5s

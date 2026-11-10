@@ -1,0 +1,6 @@
+Source ZIP SHA256: 481BB6826D883A085F7EA2C528D40769003CE408B28B4162B1A4A2C509275C3D
+Extracted root: <PROJECT_ROOT>\reconstruction\20261110_143022_419\eskelsen-multitenant-booking-security-lab
+Deployment substitution: esk-lab03 -> esk-lab03-repro
+Host port substitution: 18083 -> 18084
+Application, schema and test sources are unchanged.
+Fresh database storage and runtime image are required.

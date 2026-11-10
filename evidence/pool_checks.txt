@@ -1,0 +1,5 @@
+PASS POOL01: authenticated connection uses limited application role
+PASS POOL02: 40 alternating tenant transactions on one backend
+PASS POOL03: committed transactions leave no tenant context
+PASS POOL04: rollback leaves no tenant context
+APPLICATION ROLE AND POOL ISOLATION PASS
